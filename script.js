@@ -69,3 +69,39 @@ $("button").click(function () {
       case "5 PM": return 17;
     }
   }
+
+
+  function loadCorrectDataset() {
+    // Saving data submitted in timeblock to local storage
+    result = localStorage.getItem('workDay')
+    return (result ? result : workDay);
+  }
+  
+  function initializeLocalStorage() {
+    localStorage.setItem('workDay', JSON.stringify(workDay));
+  };
+  
+  function saveToLocalStorage(dayObj) {
+    localStorage.setItem('workDay', JSON.stringify(dayObj));
+  }
+  
+  function saveSchedule(hourString, val) {
+    if (!localStorage.getItem('workDay')) {
+      initializeLocalStorage();
+    }
+  
+    let workHours = JSON.parse(localStorage.getItem('workDay'));
+    workHours[hourString] = val
+  
+    saveToLocalStorage(workHours);
+  }
+  
+//   Ties back into earlier variable
+  function updateCalendarTasks(dayObject) {
+    $(".calendar-row").each(function (index) {
+      let res = $(this).children("div");
+      $(this).children("textarea").text(dayObject[res.text()]);
+    })
+  }
+
+  
