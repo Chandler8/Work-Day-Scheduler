@@ -14,6 +14,6 @@ SO THAT I can manage my time effectively
 
 ![](Photos/Scheduler1.JPG)
 
-![](Photos/)
+![](Photos/Scheduler2.JPG)
 
-![](Photos/)
+![](Photos/Scheduler3.JPG)
